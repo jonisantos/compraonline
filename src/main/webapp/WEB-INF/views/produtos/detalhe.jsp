@@ -11,30 +11,32 @@
 </head>
 <body>
 
-	<div class="container">
-		<h1>Cadastro de Produtos</h1>
-		<form:form action="${s:mvcUrl('PC#gravar').build()}" method="POST"
-			commandName="produto" enctype="multipart/form-data">
-			<div>
-				<label>Nome</label> <input type="text" name="nome" />
-				<form:errors path="nome" />
+	<article >
+		<header >
+			<div >
+				<img width="280px" height="395px" src="http://cdn.shopify.com/s/files/1/0155/7645/products/css-eficiente-featured_large.png?v=1435245145"
+					class="product-featured-image" />
+				<h1 class="product-nome">${produto.nome}</h1>
+				<
+				<p class="product-description">${produto.descricao}</p>
 			</div>
-			<div>
-				<label>Descrição</label>
-				<textarea rows="10" cols="20" name="descricao"></textarea>
-				<form:errors path="descricao" />
-			</div>
-			<div>
-				<label>Preço</label> <input type="text" name="preco" />
-			</div>
+		</header>
 
-			<div>
-				<label>Sumário</label> 
-				<input name="imagem" type="file" />
-			</div>
-
-			<button type="submit">Cadastrar</button>
-		</form:form>
-	</div>
+		<section class="buy-options clearfix">
+			<form action="/carrinho/add" method="post" class="container">
+				<input type="hidden" value="${produto.id}" name="produtoId" >
+				<ul id="variants" class="clearfix">
+				
+						<li class="buy-option">
+							<input type="radio" name="tipoPreco" class="variant-radio" id="tipoPreco" value="AQUI COLOQUE O TIPO DO PRECO" checked="checked" /> 
+							<label class="variant-label">AQUI COLOQUE O TIPO DO PRECO</label> 
+							<small class="compare-at-price">R$ 39,90</small>
+							<p class="variant-price">AQUI COLOQUE O VALOR DO PRECO</p>
+						</li>
+						
+				</ul>
+				<button type="submit" class="submit-image icon-basket-alt" title="Compre Agora AQUI COLOQUE O TITULO"></button>
+			</form>
+		</section>
 </body>
 </html>
